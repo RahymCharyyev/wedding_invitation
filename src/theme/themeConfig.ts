@@ -3,16 +3,16 @@ import type { ThemeConfig } from 'antd';
 const theme: ThemeConfig = {
   token: {
     fontSize: 16,
-    colorPrimary: '#4eb39d',
+    colorPrimary: '#f3b712',
     colorSplit: '#F3F3F3',
   },
   components: {
     Input: {
-      activeBorderColor: '#4eb39d',
-      hoverBorderColor: '#4eb39d',
+      activeBorderColor: '#f3b712',
+      hoverBorderColor: '#f3b712',
     },
     Button: {
-      colorPrimary: '#4eb39d',
+      colorPrimary: '#f3b712',
     },
   },
 };

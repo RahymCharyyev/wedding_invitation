@@ -35,41 +35,41 @@ const CountdownSection = () => {
   }, []);
 
   return (
-    <section className='py-16 px-6 bg-gradient-to-b from-white to-emerald-50'>
+    <section className='py-16 px-6'>
       <div className='max-w-4xl mx-auto text-center'>
-        <h2 className='text-3xl md:text-4xl font-serif mb-10 text-emerald-800'>
+        <h2 className='text-3xl md:text-4xl font-serif mb-10 text-yellow-800'>
           {t('countdownTitle')}
         </h2>
         <div className='grid grid-cols-4 gap-2 md:gap-6'>
-          <div className='bg-white p-4 rounded-lg shadow-md border border-emerald-100'>
-            <div className='text-3xl md:text-5xl font-bold text-emerald-700'>
+          <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
+            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
               {countdown.days}
             </div>
-            <div className='text-sm md:text-base text-emerald-600'>
+            <div className='text-sm md:text-base text-yellow-600'>
               {t('days')}
             </div>
           </div>
-          <div className='bg-white p-4 rounded-lg shadow-md border border-emerald-100'>
-            <div className='text-3xl md:text-5xl font-bold text-emerald-700'>
+          <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
+            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
               {countdown.hours}
             </div>
-            <div className='text-sm md:text-base text-emerald-600'>
+            <div className='text-sm md:text-base text-yellow-600'>
               {t('hours')}
             </div>
           </div>
-          <div className='bg-white p-4 rounded-lg shadow-md border border-emerald-100'>
-            <div className='text-3xl md:text-5xl font-bold text-emerald-700'>
+          <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
+            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
               {countdown.minutes}
             </div>
-            <div className='text-sm md:text-base text-emerald-600'>
+            <div className='text-sm md:text-base text-yellow-600'>
               {t('minutes')}
             </div>
           </div>
-          <div className='bg-white p-4 rounded-lg shadow-md border border-emerald-100'>
-            <div className='text-3xl md:text-5xl font-bold text-emerald-700'>
+          <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
+            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
               {countdown.seconds}
             </div>
-            <div className='text-sm md:text-base text-emerald-600'>
+            <div className='text-sm md:text-base text-yellow-600'>
               {t('seconds')}
             </div>
           </div>
