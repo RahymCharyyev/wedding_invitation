@@ -2,24 +2,24 @@ import { I18nProviderClient } from '@/locales/client';
 import theme from '@/theme/themeConfig';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
-import type { Viewport } from 'next';
-// import { Geist, Geist_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Literata } from 'next/font/google';
 import { ReactElement } from 'react';
 import './globals.css';
 import Loading from './loading';
 
-// const geistSans = Geist({
-//   variable: '--font-geist-sans',
-//   subsets: ['latin'],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: '--font-geist-mono',
-//   subsets: ['latin'],
-// });
+const literata = Literata({
+  variable: '--font-literata',
+  subsets: ['latin'],
+});
 
 export const viewport: Viewport = {
   themeColor: '#9E0000',
+};
+
+export const metadata: Metadata = {
+  title: 'Wedding Invitation',
+  description: 'Wedding Invitation (Rahym & Mahri)',
 };
 
 export default async function RootLayout({
@@ -33,7 +33,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head />
-      <body className={`antialiased`}>
+      <body className={`${literata.className} antialiased`}>
         <AntdRegistry>
           <ConfigProvider theme={theme}>
             <I18nProviderClient locale={locale} fallback={<Loading />}>

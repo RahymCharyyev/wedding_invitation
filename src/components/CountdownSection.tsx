@@ -1,7 +1,12 @@
 import { useI18n } from '@/locales/client';
-import { useEffect, useState } from 'react';
+import { cn } from '@/utils/cn';
+import { FC, useEffect, useState } from 'react';
 
-const CountdownSection = () => {
+interface CountdownSectionProps {
+  side: 'boy' | 'girl' | 'selbi';
+}
+
+const CountdownSection: FC<CountdownSectionProps> = ({ side }) => {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -10,7 +15,10 @@ const CountdownSection = () => {
   });
   const t = useI18n();
 
-  const weddingDate = new Date('2025-04-29T18:00:00');
+  const weddingDate =
+    side !== 'girl'
+      ? new Date('2025-04-30T11:00:00')
+      : new Date('2025-04-29T18:00:00');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,39 +45,84 @@ const CountdownSection = () => {
   return (
     <section className='py-16 px-6'>
       <div className='max-w-4xl mx-auto text-center'>
-        <h2 className='text-3xl md:text-4xl font-serif mb-10 text-yellow-800'>
+        <h2
+          className={cn(
+            'text-3xl md:text-4xl font-serif mb-10',
+            side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+          )}
+        >
           {t('countdownTitle')}
         </h2>
         <div className='grid grid-cols-4 gap-2 md:gap-6'>
           <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
-            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
+            <div
+              className={cn(
+                'text-3xl md:text-5xl font-bold',
+                side !== 'girl' ? ' text-red-700' : 'text-yellow-700'
+              )}
+            >
               {countdown.days}
             </div>
-            <div className='text-sm md:text-base text-yellow-600'>
+            <div
+              className={cn(
+                'text-sm md:text-base',
+                side !== 'girl' ? ' text-red-600' : 'text-yellow-600'
+              )}
+            >
               {t('days')}
             </div>
           </div>
           <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
-            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
+            <div
+              className={cn(
+                'text-3xl md:text-5xl font-bold',
+                side !== 'girl' ? ' text-red-700' : 'text-yellow-700'
+              )}
+            >
               {countdown.hours}
             </div>
-            <div className='text-sm md:text-base text-yellow-600'>
+            <div
+              className={cn(
+                'text-sm md:text-base',
+                side !== 'girl' ? ' text-red-600' : 'text-yellow-600'
+              )}
+            >
               {t('hours')}
             </div>
           </div>
           <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
-            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
+            <div
+              className={cn(
+                'text-3xl md:text-5xl font-bold',
+                side !== 'girl' ? ' text-red-700' : 'text-yellow-700'
+              )}
+            >
               {countdown.minutes}
             </div>
-            <div className='text-sm md:text-base text-yellow-600'>
+            <div
+              className={cn(
+                'text-sm md:text-base',
+                side !== 'girl' ? ' text-red-600' : 'text-yellow-600'
+              )}
+            >
               {t('minutes')}
             </div>
           </div>
           <div className='bg-white p-4 rounded-lg shadow-md border border-yellow-100'>
-            <div className='text-3xl md:text-5xl font-bold text-yellow-700'>
+            <div
+              className={cn(
+                'text-3xl md:text-5xl font-bold',
+                side !== 'girl' ? ' text-red-700' : 'text-yellow-700'
+              )}
+            >
               {countdown.seconds}
             </div>
-            <div className='text-sm md:text-base text-yellow-600'>
+            <div
+              className={cn(
+                'text-sm md:text-base',
+                side !== 'girl' ? ' text-red-600' : 'text-yellow-600'
+              )}
+            >
               {t('seconds')}
             </div>
           </div>

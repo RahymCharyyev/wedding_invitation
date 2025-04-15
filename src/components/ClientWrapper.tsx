@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import FirstScreenCover from '@/components/FirstScreenCover';
 import HeroSection from '@/components/HeroSection';
 import InvitationText from '@/components/InvitationText';
@@ -10,7 +10,11 @@ import ScheduleSection from '@/components/ScheduleSection';
 import RsvpSection from '@/components/RsvpSection';
 import FooterSection from '@/components/FooterSection';
 
-export default function ClientWrapper() {
+interface ClientWrapperProps {
+  side: 'boy' | 'girl' | 'selbi';
+}
+
+export const ClientWrapper: FC<ClientWrapperProps> = ({ side }) => {
   const [unlocked, setUnlocked] = useState(false);
 
   return (
@@ -19,15 +23,15 @@ export default function ClientWrapper() {
         <FirstScreenCover setUnlocked={setUnlocked} />
       ) : (
         <>
-          <HeroSection />
-          <InvitationText />
-          <CountdownSection />
-          <VenueSection />
-          <ScheduleSection />
-          <RsvpSection />
-          <FooterSection />
+          <HeroSection side={side} />
+          <InvitationText side={side} />
+          <CountdownSection side={side} />
+          <VenueSection side={side} />
+          {side !== 'selbi' ? <ScheduleSection side={side} /> : undefined}
+          <RsvpSection side={side} />
+          <FooterSection side={side} />
         </>
       )}
     </>
   );
-}
+};

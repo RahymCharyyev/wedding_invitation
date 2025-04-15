@@ -1,14 +1,25 @@
 import { useI18n } from '@/locales/client';
+import { cn } from '@/utils/cn';
+import { getPathWithoutLocale } from '@/utils/getPathname';
 import { Button, Input, message, Radio, RadioChangeEvent } from 'antd';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { FC, useState } from 'react';
 
-const RsvpSection = () => {
+interface RsvpSectionProps {
+  side: 'boy' | 'girl' | 'selbi';
+}
+
+const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
   const t = useI18n();
   const [messageApi, contextHolder] = message.useMessage();
   const [rsvpData, setRsvpData] = useState({
     fullname: '',
     attending: '',
+    site: '',
   });
+  const pathname = usePathname();
+  const cleanPath = getPathWithoutLocale(pathname);
+  const lastSegment = cleanPath.split('/').pop();
 
   const handleRsvpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +44,7 @@ const RsvpSection = () => {
           })}`
         );
 
-        setRsvpData({ fullname: '', attending: '' });
+        setRsvpData({ fullname: '', attending: '', site: lastSegment || '/' });
       } else {
         messageApi.error(t('submitError'));
       }
@@ -47,10 +58,22 @@ const RsvpSection = () => {
     <section className='py-16 px-6 bg-[url(/rsvp.webp)] bg-cover bg-center'>
       {contextHolder}
       <div className='max-w-md mx-auto'>
-        <h2 className='text-3xl md:text-4xl font-serif mb-8 text-center text-yellow-800'>
+        <h2
+          className={cn(
+            'text-3xl md:text-4xl font-serif mb-8 text-center',
+            side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+          )}
+        >
           {t('rsvp')}
         </h2>
-        <p className='text-center mb-8 text-yellow-700'>{t('rsvpText')}</p>
+        <p
+          className={cn(
+            'text-center mb-8',
+            side !== 'girl' ? ' text-red-700' : 'text-yellow-700'
+          )}
+        >
+          {t('rsvpText')}
+        </p>
         <form
           onSubmit={handleRsvpSubmit}
           className='bg-white p-6 rounded-lg shadow-md'
@@ -63,12 +86,22 @@ const RsvpSection = () => {
               onChange={(e) =>
                 setRsvpData({ ...rsvpData, fullname: e.target.value })
               }
-              className='mt-1 border-yellow-200 focus:ring-yellow-500 focus:border-yellow-500'
+              className={cn(
+                'mt-1',
+                side !== 'girl'
+                  ? ' border-red-200 focus:ring-red-500 focus:border-red-500'
+                  : 'border-yellow-200 focus:ring-yellow-500 focus:border-yellow-500'
+              )}
               required
             />
           </div>
           <div className='mb-6'>
-            <div className='text-yellow-800 block mb-2 font-bold'>
+            <div
+              className={cn(
+                'block mb-2 font-bold',
+                side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+              )}
+            >
               {t('willYouAttend')}
             </div>
             <Radio.Group
@@ -78,13 +111,28 @@ const RsvpSection = () => {
               }
             >
               <div className='flex flex-col gap-2'>
-                <Radio value='yes' className='text-yellow-800'>
+                <Radio
+                  value='yes'
+                  className={cn(
+                    side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+                  )}
+                >
                   {t('yes')}
                 </Radio>
-                <Radio value='no' className='text-yellow-800'>
+                <Radio
+                  className={cn(
+                    side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+                  )}
+                  value='no'
+                >
                   {t('no')}
                 </Radio>
-                <Radio value='undefined' className='text-yellow-800'>
+                <Radio
+                  className={cn(
+                    side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+                  )}
+                  value='undefined'
+                >
                   {t('undefinded')}
                 </Radio>
               </div>
@@ -92,7 +140,12 @@ const RsvpSection = () => {
           </div>
           <Button
             htmlType='submit'
-            className='w-full bg-yellow-600 hover:bg-yellow-700 text-white'
+            className={cn(
+              'w-full',
+              side !== 'girl'
+                ? ' bg-red-600 hover:bg-red-700 text-white'
+                : 'bg-yellow-600 hover:bg-yellow-700 text-white'
+            )}
           >
             {t('submit')}
           </Button>
