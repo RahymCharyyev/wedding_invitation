@@ -24,10 +24,24 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
   const handleRsvpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      let site = 'rahym';
+
+      if (lastSegment?.includes('mahri')) {
+        site = 'mahri';
+      } else if (lastSegment?.includes('selbi')) {
+        site = 'selbi';
+      }
+
+      const dataToSubmit = {
+        fullname: rsvpData.fullname,
+        attending: rsvpData.attending,
+        site,
+      };
+
       const response = await fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(rsvpData),
+        body: JSON.stringify(dataToSubmit),
       });
 
       if (response.ok) {
@@ -44,7 +58,11 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
           })}`
         );
 
-        setRsvpData({ fullname: '', attending: '', site: lastSegment || '/' });
+        setRsvpData({
+          fullname: '',
+          attending: '',
+          site: '',
+        });
       } else {
         messageApi.error(t('submitError'));
       }

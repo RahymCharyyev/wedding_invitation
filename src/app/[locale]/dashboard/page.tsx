@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { Table } from 'antd';
 
 interface RsvpData {
-  fullname: string;
-  attending: string;
+  fullName: string;
+  isAttending: string;
+  site: string;
   submittedAt: string;
 }
 
@@ -24,10 +25,12 @@ const AdminPage = () => {
       <h1 className='text-2xl font-bold mb-4'>RSVP Submissions</h1>
       <Table
         dataSource={data}
-        rowKey={(record) => record.fullname + record.submittedAt}
+        rowKey={(record) => record.fullName + record.submittedAt}
         columns={[
-          { title: 'Full Name', dataIndex: 'fullname', key: 'fullname' },
-          { title: 'Attending', dataIndex: 'attending', key: 'attending' },
+          { title: '№', dataIndex: 'id', key: 'id' },
+          { title: 'Full Name', dataIndex: 'fullName', key: 'fullName' },
+          { title: 'Attending', dataIndex: 'isAttending', key: 'isAttending' },
+          { title: 'Site', dataIndex: 'site', key: 'site' },
           {
             title: 'Submitted At',
             dataIndex: 'submittedAt',

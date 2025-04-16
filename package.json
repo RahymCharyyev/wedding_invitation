@@ -6,12 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "npx kysely-codegen --out-file ./src/app/api/db/types.ts"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.2",
     "antd": "^5.24.6",
+    "better-sqlite3": "^11.9.1",
     "clsx": "^2.1.1",
+    "kysely": "^0.28.0",
+    "kysely-codegen": "^0.18.3",
     "lucide-react": "^0.485.0",
     "next": "15.3.0",
     "next-international": "^1.3.1",
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
