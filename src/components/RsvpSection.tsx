@@ -2,6 +2,7 @@ import { useI18n } from '@/locales/client';
 import { cn } from '@/utils/cn';
 import { getPathWithoutLocale } from '@/utils/getPathname';
 import { Button, Input, message, Radio, RadioChangeEvent } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 import { usePathname } from 'next/navigation';
 import { FC, useState } from 'react';
 
@@ -16,6 +17,7 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
     fullname: '',
     attending: '',
     site: '',
+    wishes: '',
   });
   const pathname = usePathname();
   const cleanPath = getPathWithoutLocale(pathname);
@@ -36,6 +38,7 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
         fullname: rsvpData.fullname,
         attending: rsvpData.attending,
         site,
+        wishes: rsvpData.wishes,
       };
 
       const response = await fetch('/api/rsvp', {
@@ -62,6 +65,7 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
           fullname: '',
           attending: '',
           site: '',
+          wishes: '',
         });
       } else {
         messageApi.error(t('submitError'));
@@ -155,6 +159,29 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
                 </Radio>
               </div>
             </Radio.Group>
+          </div>
+          <div className='mb-6'>
+            <div
+              className={cn(
+                'block mb-2 font-bold',
+                side !== 'girl' ? ' text-red-800' : 'text-yellow-800'
+              )}
+            >
+              {t('wishesTitle')}
+            </div>
+            <TextArea
+              rows={4}
+              placeholder={t('wishesPlaceholder')}
+              value={rsvpData.wishes}
+              onChange={(e) =>
+                setRsvpData({ ...rsvpData, wishes: e.target.value })
+              }
+              className={cn(
+                side !== 'girl'
+                  ? ' border-red-200 focus:ring-red-500 focus:border-red-500'
+                  : 'border-yellow-200 focus:ring-yellow-500 focus:border-yellow-500'
+              )}
+            />
           </div>
           <Button
             htmlType='submit'

@@ -7,6 +7,7 @@ interface RsvpData {
   fullName: string;
   isAttending: string;
   site: string;
+  wishes: string;
   submittedAt: string;
 }
 
@@ -31,6 +32,7 @@ const AdminPage = () => {
           { title: 'Full Name', dataIndex: 'fullName', key: 'fullName' },
           { title: 'Attending', dataIndex: 'isAttending', key: 'isAttending' },
           { title: 'Site', dataIndex: 'site', key: 'site' },
+          { title: 'Wishes', dataIndex: 'wishes', key: 'wishes' },
           {
             title: 'Submitted At',
             dataIndex: 'submittedAt',

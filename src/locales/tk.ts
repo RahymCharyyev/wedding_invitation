@@ -29,7 +29,7 @@ export default {
   gelinalyjy: 'Gelinalyjy',
   rsvp: 'Gelmekligi tassyklamak',
   rsvpText:
-    'Dabara gatnaşýandygyňyzy tassyklamagyňyzy haýyş edýäris, bu bize dabarany guramakda kömek eder! Jogabyňyzy 27.04.2025 senesine çenli garaşarys.',
+    'Dabara gatnaşýandygyňyzy tassyklamagyňyzy haýyş edýäris, bu bize dabarany guramakda kömek eder!',
   fullName: 'At we familiýa',
   willYouAttend: 'Gatnaşyp bilersiňizmi?',
   yes: 'Hawa, nesip bolsa',
@@ -48,4 +48,6 @@ export default {
   unknownError: 'Näsazlyk ýüze çykdy',
   error: 'Näsazlyk ýüze çykdy',
   notFoundText: 'Sahypa tapylmady',
+  wishesTitle: 'Ýaşlara gutlag sözleriňiz (islegiňize görä)',
+  wishesPlaceholder: 'Gutlag sözleriňiziň teksti',
 } as const;

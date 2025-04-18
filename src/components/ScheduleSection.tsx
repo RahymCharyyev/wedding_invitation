@@ -23,7 +23,7 @@ const ScheduleSection: FC<ScheduleSectionProps> = ({ side }) => {
       { time: '18:00', event: t('guestArrival') },
       { time: '19:15', event: t('entrance') },
       { time: '19:20', event: t('banket') },
-      { time: '22:00', event: t('ending') },
+      { time: '23:00', event: t('ending') },
     ];
   }
 

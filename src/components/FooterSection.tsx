@@ -8,15 +8,17 @@ interface FooterSectionProps {
 const FooterSection: FC<FooterSectionProps> = ({ side }) => {
   const t = useI18n();
   return (
-    <footer className='py-8 px-6 bg-gray-400 bg-cover  bg-center text-center'>
-      <h2 className='text-2xl md:text-3xl font-serif mb-4 text-white'>
+    <footer className='py-8 px-6 bg-yellow-50 bg-cover  bg-center text-center'>
+      <h2 className='text-2xl md:text-3xl font-serif mb-4 text-yellow-800'>
         {t('rahym')} & {t('mahri')}
       </h2>
-      <p className='text-white'>{t('footerText')}</p>
+      <p className='text-yellow-800'>{t('footerText')}</p>
       {side !== 'girl' ? (
-        <p className='mt-6 text-sm text-white'>{t('weddingDayRahym')}</p>
+        <p className='mt-6 text-sm text-yellow-800'>{t('weddingDayRahym')}</p>
       ) : (
-        <p className='mt-6 text-sm text-white'>{t('weddingDay')} • MSM Hall</p>
+        <p className='mt-6 text-sm text-yellow-800'>
+          {t('weddingDay')} • MSM Hall
+        </p>
       )}
     </footer>
   );
