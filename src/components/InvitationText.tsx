@@ -55,7 +55,7 @@ const InvitationText: FC<InvitationTextProps> = ({ side }) => {
                 side !== 'girl' ? ' text-red-600' : 'text-yellow-600'
               )}
             >
-              {side !== 'girl' ? '30.04.2025 - 11:00' : '29.04.2025 - 18:00'}
+              {side != 'boy' ? '29.04.2025 - 18:00' : '30.04.2025 - 11:00'}
             </p>
           </div>
         </div>
