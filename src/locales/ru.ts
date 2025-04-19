@@ -50,4 +50,6 @@ export default {
   notFoundText: 'Страница не найдена',
   wishesTitle: 'Ваши пожелания молодоженам (опционально)',
   wishesPlaceholder: 'Текст пожелания',
+  clickToOpen: 'Выберите язык и нажмите кнопку, чтобы открыть пригласительное',
+  openInvitation: 'Открыть',
 } as const;

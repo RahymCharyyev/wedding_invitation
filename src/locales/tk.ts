@@ -50,4 +50,6 @@ export default {
   notFoundText: 'Sahypa tapylmady',
   wishesTitle: 'Ýaşlara gutlag sözleriňiz (islegiňize görä)',
   wishesPlaceholder: 'Gutlag sözleriňiziň teksti',
+  clickToOpen: 'Dili saýlaň we çakylygy açmak üçin açmak düwmesine basyň',
+  openInvitation: 'Açmak',
 } as const;
