@@ -51,7 +51,7 @@ const FirstScreenCover: FC<FirstScreenCoverProps> = ({ setUnlocked }) => {
 
         <button
           onClick={() => setUnlocked(true)}
-          className='px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full text-lg font-semibold shadow-md hover:scale-105 transition'
+          className='w-[200px] py-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-xl font-semibold shadow-md hover:scale-105 transition'
         >
           {t('openInvitation')}
         </button>
