@@ -8,6 +8,7 @@ export interface Guests {
   id: number;
   isAttending: string;
   site: string;
+  wishes: string;
   submittedAt: string;
 }
 

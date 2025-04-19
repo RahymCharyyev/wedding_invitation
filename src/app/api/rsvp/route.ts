@@ -3,7 +3,7 @@ import { db } from '../db/connect';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { fullname, attending, site } = body;
+  const { fullname, attending, site, wishes } = body;
 
   if (!fullname || !attending) {
     return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
       fullName: fullname,
       isAttending: attending,
       site,
+      wishes,
       id: last?.id ? last.id + 1 : 1,
       submittedAt: new Date().toISOString(),
     })
