@@ -37,7 +37,7 @@ const VenueSection: FC<VenueSectionProps> = ({ side }) => {
           ) : (
             <Image
               sizes='100%'
-              src='/msm.webp'
+              src='/wedding/msm.webp'
               alt='MSM Hall'
               fill
               className='object-cover'

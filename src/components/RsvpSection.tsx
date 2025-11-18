@@ -77,7 +77,7 @@ const RsvpSection: FC<RsvpSectionProps> = ({ side }) => {
   };
 
   return (
-    <section className='py-16 px-6 bg-[url(/rsvp.webp)] bg-cover bg-center'>
+    <section className='py-16 px-6 bg-[url(/wedding/rsvp.webp)] bg-cover bg-center'>
       {contextHolder}
       <div className='max-w-md mx-auto'>
         <h2
