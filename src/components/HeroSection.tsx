@@ -43,7 +43,7 @@ const HeroSection: FC<HeroSectionProps> = ({ side }) => {
         loop
         playsInline
       >
-        <source src='/video_intro.mp4' type='video/mp4' />
+        <source src='/wedding/video_intro.mp4' type='video/mp4' />
       </video>
       <div className='absolute top-0 left-0 w-full h-full bg-black/30 z-10'></div>
       <div className='absolute bottom-28 z-20'>
