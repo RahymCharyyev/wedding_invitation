@@ -17,7 +17,7 @@ const FirstScreenCover: FC<FirstScreenCoverProps> = ({ setUnlocked }) => {
       <div
         className='absolute inset-0 -z-10 opacity-40'
         style={{
-          backgroundImage: "url('/bg.webp')",
+          backgroundImage: "url('/wedding/bg.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

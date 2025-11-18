@@ -17,7 +17,7 @@ const HeroSection: FC<HeroSectionProps> = ({ side }) => {
   const t = useI18n();
 
   return side === 'girl' ? (
-    <section className='bg-[url(/hero_section_bg.webp)] bg-cover bg-center relative h-screen flex flex-col items-center justify-end text-center text-white'>
+    <section className='bg-[url(/wedding/hero_section_bg.webp)] bg-cover bg-center relative h-screen flex flex-col items-center justify-end text-center text-white'>
       <div className='absolute bottom-28'>
         <h1 className={`${greatVibes.className} text-5xl md:text-7xl mb-4`}>
           {t('rahym')}

@@ -10,7 +10,7 @@ interface InvitationTextProps {
 const InvitationText: FC<InvitationTextProps> = ({ side }) => {
   const t = useI18n();
   return (
-    <section className='py-16 px-6 bg-[url(/text_bg.webp)] text-center bg-center bg-cover'>
+    <section className='py-16 px-6 bg-[url(/wedding/text_bg.webp)] text-center bg-center bg-cover'>
       <div className='max-w-2xl mx-auto'>
         <h2
           className={cn(
